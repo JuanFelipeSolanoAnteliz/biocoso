@@ -833,6 +833,30 @@ header span {
     .doctor-cards {
       grid-template-columns: 1fr;
     }
+    .info-cards{
+      min-width: 90px;
+    }
+    .hero-text{
+      width: 96vw;
+      margin-left: 8px;
+    }
+    .hero-title{
+      width: 100%;
+    }
+    .service-features__item{
+      height: 90px;
+    }
+    .services{
+      min-width: 90px;
+      padding: 4rem .5rem;
+    }
+    .why-us{
+      padding: 2rem .5rem;
+      min-width: 90px;
+    }
+    .doctors{
+      min-width: 90px;
+    }
     .hero-image{
       display: none;
     }
@@ -856,9 +880,13 @@ header span {
       align-items: center;
       justify-content: center;
       justify-items: center;
+      font-size: 16px;
     }
     .stats-cards{
       grid-template-columns: 1fr;
+    }
+    .stats{
+      min-width: 90px;
     }
   }
 </style>
