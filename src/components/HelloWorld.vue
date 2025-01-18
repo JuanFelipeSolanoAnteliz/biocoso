@@ -1,6 +1,5 @@
 <template>
   <div class="min-h-screen bg-white">
-    <div class="animated-background"></div>
     <!-- Header -->
     <header id="header" class="header animate-on-scroll">
       <div class="flex items-center gap-2">
@@ -8,9 +7,9 @@
       </div>
       <nav class="nav">
         <a href="#" class="nav-link" @click.prevent="scrollTo('.header')">Inicio</a>
-        <a href="#" class="nav-link"@click.prevent="scrollTo('.services')">Servicios</a>
-        <a href="#" class="nav-link"@click.prevent="scrollTo('.why-us')">Conocenos</a>
-        <a href="#" class="nav-link"@click.prevent="scrollTo('.stats')">Contacto</a>
+        <a href="#" class="nav-link" @click.prevent="scrollTo('.services')">Servicios</a>
+        <a href="#" class="nav-link" @click.prevent="scrollTo('.why-us')">Conocenos</a>
+        <a href="#" class="nav-link" @click.prevent="scrollTo('.stats')">Contacto</a>
       </nav>
     </header>
 
@@ -45,7 +44,7 @@
 
     <!-- Services Section -->
     <section id="service" class="services animate-on-scroll">
-      <h2 class="section-title">Nuestros Servicios</h2>
+      <h2 id="blanco" class="section-title">Nuestros Servicios</h2>
       <div class="service-cards">
         <div class="service-card" v-for="service in services" :key="service.title">
           <div class="service-card-inner">
@@ -64,7 +63,7 @@
 
     <!-- Why Us Section -->
     <section id="why" class="why-us animate-on-scroll">
-      <h2 class="section-title">¿Por qué nosotros?</h2>
+      <h2  class="section-title">¿Por qué nosotros?</h2>
       <div class="feature-cards">
         <div class="feature-card" v-for="about in about" :key="about.title">
           <div class="feature-icon">
@@ -97,15 +96,15 @@
     <section id="stats" class="stats animate-on-scroll">
       <div class="stats-cards">
         <div class="stats-card">
-          <div class="stats-value"><img src="https://www.svgrepo.com/show/499760/mail-mail-email.svg" alt=""></div>
+          <div class="stats-value"><img src="../assets/mail-free-material-svgrepo-com.svg" alt=""></div>
           <p class="stats-description">biocentralelectronica@gmail.com</p>
         </div>
         <div class="stats-card">
-          <div class="stats-value"><img src="https://www.svgrepo.com/show/499767/volume-on.svg" alt=""></div>
+          <div class="stats-value"><img src="https://www.svgrepo.com/show/526085/phone-calling.svg" alt=""></div>
           <p class="stats-description">+57 315 600 3326</p>
         </div>
         <div class="stats-card">
-          <div class="stats-value"><img src="https://www.svgrepo.com/show/499777/navigation.svg" alt=""></div>
+          <div class="stats-value"><img src="../assets/location-svgrepo-com.svg" alt=""></div>
           <p class="stats-description">Neiva, Huila</p>
         </div>
       </div>
@@ -161,13 +160,13 @@ const services = [
     description: `El plan incluye los objetivos, las metas y la programación de actividades.   
     Para esto la empresa cuenta con un software que facilita un mejor manejo
     de la información de los equipos médicos.`,
-    image: "https://media.istockphoto.com/id/2148853397/es/foto/ventana-trabajo-en-equipo-y-pizarra-para-lluvia-de-ideas-en-reuniones-gente-de-negocios-con.jpg?b=1&s=612x612&w=0&k=20&c=p9vrM9FGMbqo0HJjhmFW59H4F0LP3AgUBM3vm7hajLM=",
+    image: "https://images.pexels.com/photos/9574405/pexels-photo-9574405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     more:"hola esta es la info extra"
   },
   {
     title: "Asesorías",
     description: `Asesoramos y acompañamos a nuestros clientes en la adquisición de nuevos equipos, adecuaciones físicas, cumplimiento de requisitos de habilitación, creación de hojas de vida de los equipos y el desarrollo de programas de mantenimiento.`,
-    image: "https://media.istockphoto.com/id/2159445929/es/foto/negocios-personas-y-redacci%C3%B3n-de-plan-informe-y-papeleo-para-el-discurso-de-pol%C3%ADticos-y.jpg?b=1&s=612x612&w=0&k=20&c=vovHHZYzx2b1EllV-3kNhQpYoK8J1Xau7DPSSmI83zo=",
+    image: "https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=600=",
     more:"hola esta es la info extra"
   },
   {
@@ -179,13 +178,13 @@ const services = [
   {
     title: "Outsourcing de Mantenimiento",
     description: `Buscamos que las empresas de salud, Clínicas, IPS, Hospitales, Centros de Estética y afines se dediquen a su Core de Negocio. Nos encargamos del departamento de Mantenimiento aumentando la eficiencia y eficacia del servicio técnico dentro de la institución.`,
-    image: "https://images.pexels.com/photos/5439439/pexels-photo-5439439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    image: "https://equimed.es/wp-content/uploads/2023/11/mantenimiento_cuidado_equipos_medicos_pic02_20231124_blog_equimed.jpg",
     more:"hola esta es la info extra"
   },
   {
     title: "Asesoría y Capacitación Técnica en Mantenimiento",
     description: `Prestamos este tipo de servicio con el fin de que cada uno de nuestros clientes garanticen a sus pacientes que son atendidos con equipos e instrumentos en funcionamiento permanente, bajo criterios enfocados en la mejora continua de la calidad`,
-    image: "https://images.pexels.com/photos/7698715/pexels-photo-7698715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    image: "https://images.pexels.com/photos/5712689/pexels-photo-5712689.jpeg?auto=compress&cs=tinysrgb&w=600",
     more:"hola esta es la info extra"
   },
 ]
@@ -256,10 +255,17 @@ defineExpose({ formatDescription })
 
 <style scoped>
 
+#service{
+  margin-top:10px;
+  background: #06173d;
+  width: 100vw;
+}
+
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  margin: 0px;
 }
 
 .animate-on-scroll.show {
@@ -345,16 +351,6 @@ header span {
   }
 }
 
-.animated-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background: #ffff;
-  animation: scale-up-ver-top 0.4s ease-out both;
-}
 
 @keyframes scale-up-ver-top {
   0% {
@@ -370,7 +366,10 @@ header span {
 .min-h-screen {
   position: relative;
   z-index: 1;
-  background: transparent !important;
+  /* background: red; */
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -420,7 +419,7 @@ header span {
 .service-features__icon {
   width: 24px;
   height: 24px;
-  color: #F97316;
+  
 }
 
 .service-features__content {
@@ -457,7 +456,8 @@ header span {
   max-height: 100px;
   overflow: hidden;
   margin-bottom: 25px;
-  min-width: 95vw;
+  min-width: 95vw; 
+  padding-right:50px ;
 }
 
 .title {
@@ -478,6 +478,7 @@ header span {
   color: #2f343a;
   text-decoration: none;
   transition-duration: 0.4s;
+
 }
 
 .nav-link:hover {
@@ -562,10 +563,10 @@ header span {
 
 /* Services Section */
 .services {
-  padding: 4rem 1rem;
-  max-width: 1200px;
+  padding: 4rem 6rem;
   margin: 0 auto;
   min-width: 430px;
+  max-width:100% ;
 }
 
 .section-title {
@@ -574,15 +575,21 @@ header span {
   margin-bottom: 3rem;
 }
 
+#blanco{
+  color:#fff;
+}
+
 .service-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
+
 }
 
 .service-card {
   perspective: 1000px;
-  height: 400px; /* Adjust as needed */
+  height: 400px; 
+  background: #06173d;
 }
 
 .service-card-inner {
@@ -644,10 +651,11 @@ header span {
 
 
 .stats {
-  background-color: #111827;
-  color: white;
-  padding: 4rem 1rem;
+  background-color:#fff;
+  color: #0000;
+  padding:  2rem;
   min-width: 430px;
+  min-height: 100px;
 }
 
 .stats-cards {
@@ -656,6 +664,7 @@ header span {
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  min-height:10px ;
 }
 
 .stats-card {
@@ -669,7 +678,7 @@ header span {
 }
 
 .stats-description {
-  color: #9ca3af;
+  color: #000000;
 }
 
 .why-us {
@@ -723,10 +732,11 @@ header span {
 }
 
 .doctors {
-  padding: 4rem 1rem;
-  max-width: 1200px;
+  padding: 4rem 8rem;
+   
   margin: 0 auto;
   min-width: 430px;
+  background-color: #06173d;
 }
 
 .doctors-header {
@@ -734,6 +744,7 @@ header span {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3rem;
+  color:white;
 }
 
 .btn-secondary {
@@ -849,13 +860,14 @@ header span {
       gap: 0px;
       justify-content: space-around;
       width: 100%;
+
     }
     .nav-link{
       display: flex;
       text-align:center ;
       align-items: center;
       justify-content: center;
-      justify-items: center;
+      justify-items: center
     }
     .stats-cards{
       grid-template-columns: 1fr;
