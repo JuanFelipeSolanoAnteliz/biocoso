@@ -45,15 +45,22 @@
 
     <!-- Services Section -->
     <section id="service" class="services animate-on-scroll">
-    <h2 class="section-title">Nuestros Servicios</h2>
-    <div class="service-cards">
-      <div class="service-card" v-for="service in services" :key="service.title">
-        <img :src="service.image" class="service-image" />
-        <h3 class="service-title">{{ service.title }}</h3>
-        <p class="service-description" v-html="formatDescription(service.description)"></p>
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <div class="service-cards">
+        <div class="service-card" v-for="service in services" :key="service.title">
+          <div class="service-card-inner">
+            <div class="service-card-front">
+              <img :src="service.image" class="service-image" />
+              <h3 class="service-title">{{ service.title }}</h3>
+            </div>
+            <div class="service-card-back">
+              <h3 class="service-title">{{ service.title }}</h3>
+              <p class="service-description" v-html="formatDescription(service.description)"></p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <!-- Why Us Section -->
     <section id="why" class="why-us animate-on-scroll">
@@ -107,8 +114,9 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { Calendar, Star, Activity, Shield, Users, Clock } from 'lucide-vue-next'
+
 
 const setupIntersectionObserver = () => {
   const observer = new IntersectionObserver((entries) => {
@@ -366,6 +374,8 @@ header span {
 }
 
 
+
+
 .stats-value img {
   width: 35px;
 }
@@ -571,29 +581,65 @@ header span {
 }
 
 .service-card {
-  background-color: #ffff;
+  perspective: 1000px;
+  height: 400px; /* Adjust as needed */
+}
+
+.service-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.service-card:hover .service-card-inner {
+  transform: rotateY(180deg);
+}
+
+.service-card-front, .service-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 1.5rem;
   border-radius: 0.5rem;
   box-shadow: 10px 7px 20px rgba(0, 0, 0, 0.1);
 }
 
+.service-card-front {
+  background-color: #ffffff;
+}
 
+.service-card-back {
+  background-color: #f3f4f6;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
 
 .service-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .service-title {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .service-description {
   color: #4b5563;
+  font-size: 0.875rem;
+  line-height: 1.4;
 }
 
 
