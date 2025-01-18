@@ -2,20 +2,20 @@
   <div class="min-h-screen bg-white">
     <div class="animated-background"></div>
     <!-- Header -->
-    <header class="header">
+    <header id="header" class="header">
       <div class="flex items-center gap-2">
         <span class="title"><img src="../assets/BiocentralElectronica.JPG" alt=""></span>
       </div>
       <nav class="nav">
-        <a href="#" class="nav-link">Inicio</a>
-        <a href="#" class="nav-link">Servicios</a>
-        <a href="#" class="nav-link">Conocenos</a>
-        <a href="#" class="nav-link">Contacto</a>
+        <a href="#" class="nav-link" @click.prevent="scrollTo('.header')">Inicio</a>
+        <a href="#" class="nav-link"@click.prevent="scrollTo('.services')">Servicios</a>
+        <a href="#" class="nav-link"@click.prevent="scrollTo('.why-us')">Conocenos</a>
+        <a href="#" class="nav-link"@click.prevent="scrollTo('.stats')">Contacto</a>
       </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="hero" class="hero">
       <div class="hero-text">
         <h1 class="hero-title">Biocentral<br />Electronica</h1>
         <p class="hero-description">Cuidamos la tecnología que protege vidas, asegurando su rendimiento y confiabilidad para un mejor cuidado de la salud.</p>
@@ -44,7 +44,7 @@
     </section>
 
     <!-- Services Section -->
-    <section class="services">
+    <section id="service" class="services">
     <h2 class="section-title">Nuestros Servicios</h2>
     <div class="service-cards">
       <div class="service-card" v-for="service in services" :key="service.title">
@@ -56,7 +56,7 @@
   </section>
 
     <!-- Why Us Section -->
-    <section class="why-us">
+    <section id="why" class="why-us">
       <h2 class="section-title">¿Por qué nosotros?</h2>
       <div class="feature-cards">
         <div class="feature-card" v-for="about in about" :key="about.title">
@@ -87,7 +87,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="stats">
+    <section id="stats" class="stats">
       <div class="stats-cards">
         <div class="stats-card">
           <div class="stats-value"><img src="https://www.svgrepo.com/show/499760/mail-mail-email.svg" alt=""></div>
@@ -113,6 +113,13 @@ import { Calendar, Star, Activity, Shield, Users, Clock } from 'lucide-vue-next'
 const formatDescription = (text) => {
   return text.replace(/\n/g, '<br>')
 }
+
+const scrollTo = (sectionRef) => {
+  const element = document.querySelector(sectionRef); // Busca el elemento con el selector
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' }); // Scroll suave hacia el elemento
+  }
+};
 
 const services = [
   {
