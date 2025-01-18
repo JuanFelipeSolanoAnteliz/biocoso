@@ -1,15 +1,16 @@
 <template>
   <div class="min-h-screen bg-white">
+    <div class="animated-background"></div>
     <!-- Header -->
     <header class="header">
       <div class="flex items-center gap-2">
         <span class="title"><img src="../assets/BiocentralElectronica.JPG" alt=""></span>
       </div>
       <nav class="nav">
-        <a href="#" class="nav-link">Home</a>
-        <a href="#" class="nav-link">Our Services</a>
-        <a href="#" class="nav-link">About Us</a>
-        <a href="#" class="nav-link">Contact Us</a>
+        <a href="#" class="nav-link">Inicio</a>
+        <a href="#" class="nav-link">Servicios</a>
+        <a href="#" class="nav-link">Conocenos</a>
+        <a href="#" class="nav-link">Contacto</a>
       </nav>
     </header>
 
@@ -17,7 +18,7 @@
     <section class="hero">
       <div class="hero-text">
         <h1 class="hero-title">Biocentral<br />Electronica</h1>
-        <p class="hero-description">Cuidamos la tecnología que cuida la vida.</p>
+        <p class="hero-description">Cuidamos la tecnología que protege vidas, asegurando su rendimiento y confiabilidad para un mejor cuidado de la salud.</p>
         <div class="info-cards">
           <section class="service-features">
             <div class="service-features__container">
@@ -225,6 +226,106 @@ defineExpose({ formatDescription })
   font-family: "Rubik", serif;
 }
 
+@keyframes scale-up{
+  to { scale:1.5; }
+}
+@keyframes fade-away{
+  to { opacity: 0; }
+}
+
+header {
+  view-timeline: --scroll;
+}
+
+header span {
+  animation: fade-away both linear;
+  animation-timeline: --scroll;
+  animation-range:exit 20% exit 90%;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.service-card,
+.feature-card,
+.doctor-card,
+.stats-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.service-card:hover,
+.feature-card:hover,
+.doctor-card:hover,
+.stats-card:hover {
+  transform: translateY(-5px);
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pop-animation {
+  animation: pop 0.3s ease-in-out;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+}
+
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: #ffff;
+  animation: scale-up-ver-top 0.4s ease-out both;
+}
+
+@keyframes scale-up-ver-top {
+  0% {
+    transform: scaleY(0.4);
+    transform-origin: 100% 0%;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: 100% 0%;
+  }
+}
+
+.min-h-screen {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+
 .stats-value img {
   width: 35px;
 }
@@ -249,17 +350,21 @@ defineExpose({ formatDescription })
   padding: 16px;
   background-color: #FFFFFF;
   border-radius: 8px;
-  transition: transform 0.2s ease;
+  transition: transform 0.4s ease;
+  box-shadow: 10px 7px 20px rgba(0, 0, 0, 0.1);
+
 }
 
 .service-features__item:hover {
   transform: translateY(-2px);
+  background:rgb(204, 233, 252);
 }
 
 .service-features__icon-container {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .service-features__icon {
@@ -312,17 +417,16 @@ defineExpose({ formatDescription })
 
 .nav {
   display: flex; 
-
   gap: 2rem; 
 }
 
 
 .nav-link {
-  font-size: 1rem;
-  font-weight: medium;
-  margin-right: 2rem;
-  color: #4b5563;
+  font-size: 1.3rem;
+  font-weight: lighter;
+  color: #2f343a;
   text-decoration: none;
+  transition-duration: 0.4s;
 }
 
 .nav-link:hover {
@@ -382,6 +486,7 @@ defineExpose({ formatDescription })
   align-items: flex-start;
   gap: 1rem;
   margin-bottom: 1.5rem;
+  
 }
 
 .info-card-title {
@@ -422,10 +527,10 @@ defineExpose({ formatDescription })
 }
 
 .service-card {
-  background-color: white;
+  background-color: #ffff;
   padding: 1.5rem;
   border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 7px 20px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -488,13 +593,16 @@ defineExpose({ formatDescription })
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
+  
+
 }
 
 .feature-card {
   background-color: white;
   padding: 1.5rem;
   border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 7px 20px rgba(0, 0, 0, 0.1);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -561,7 +669,7 @@ defineExpose({ formatDescription })
   background-color: white;
   padding: 1.5rem;
   border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 7px 20px rgba(0, 0, 0, 0.1);
 }
 
 .doctor-info {
@@ -620,7 +728,33 @@ defineExpose({ formatDescription })
   }
 
   .hero-title{
+    max-width: 100vw;
+    font-size: 4rem;
+    text-align: center;
+  }
+  .stats-cards{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 430px) {
+  .service-cards,
+  .feature-cards,
+  .doctor-cards {
+    grid-template-columns: 1fr;
+  }
+  .hero-image{
     display: none;
+  }
+  .nav-link{
+    display: flex;
+    text-align:center ;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+  .stats-cards{
+    grid-template-columns: 1fr;
   }
 }
 </style>
