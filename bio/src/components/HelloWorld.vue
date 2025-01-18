@@ -3,8 +3,7 @@
     <!-- Header -->
     <header class="header">
       <div class="flex items-center gap-2">
-        <div class="logo" />
-        <span class="title">MediCare</span>
+        <span class="title"><img src="../assets/01_01-2.jpg" alt=""></span>
       </div>
       <nav class="nav">
         <a href="#" class="nav-link">Home</a>
@@ -12,40 +11,40 @@
         <a href="#" class="nav-link">About Us</a>
         <a href="#" class="nav-link">Contact Us</a>
       </nav>
-      <button class="btn-primary">Book Appointment</button>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-text">
-        <h1 class="hero-title">Feel Comfort<br />Be Healthy</h1>
-        <p class="hero-description">Get the best medical services you deserve. We care about your health and well-being.</p>
+        <h1 class="hero-title">Biocentral<br />Electronica</h1>
+        <p class="hero-description">Portafolio de servicios 2024</p>
         <div class="info-cards">
-          <div class="info-card">
-            <Calendar class="icon" />
-            <div>
-              <h3 class="info-card-title">Book an Appointment</h3>
-              <p class="info-card-description">Schedule your visit at your convenience</p>
+          <section class="service-features">
+            <div class="service-features__container">
+              <div v-for="(feature, index) in features" :key="index" class="service-features__item">
+                <div class="service-features__icon-container">
+                  <component :is="feature.icon" class="service-features__icon" />
+                </div>
+                <div class="service-features__content">
+                  <h3 class="service-features__heading">{{ feature.title }}</h3>
+                  <p class="service-features__text">{{ feature.description }}</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="info-card">
-            <Star class="icon" />
-            <div>
-              <h3 class="info-card-title">Get the Best Service</h3>
-              <p class="info-card-description">Professional and caring staff</p>
-            </div>
-          </div>
+          </section>
+
+        
         </div>
-        <button class="btn-primary">Make Appointment</button>
+        
       </div>
       <div class="hero-image">
-        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-UtEq36A0JundWzV8HSoxv335NXhj77.png" alt="Medical Care" />
+        <img src="../assets/pexels-artempodrez-5726706.jpg" alt="Medical Care" />
       </div>
     </section>
 
     <!-- Services Section -->
     <section class="services">
-      <h2 class="section-title">Our Services</h2>
+      <h2 class="section-title">Nuestros Servicios</h2>
       <div class="service-cards">
         <div class="service-card" v-for="service in services" :key="service.title">
           <img :src="service.image" :alt="service.title" class="service-image" />
@@ -57,7 +56,7 @@
 
     <!-- Why Us Section -->
     <section class="why-us">
-      <h2 class="section-title">Why Us?</h2>
+      <h2 class="section-title">¿Por qué nosotros?</h2>
       <div class="feature-cards">
         <div class="feature-card" v-for="feature in features" :key="feature.title">
           <div class="feature-icon">
@@ -72,14 +71,13 @@
     <!-- Doctors Section -->
     <section class="doctors">
       <div class="doctors-header">
-        <h2 class="section-title">Our Qualified Doctors</h2>
-        <button class="btn-secondary">See all Doctors</button>
+        <h2 class="section-title">Vision y Mision</h2>
       </div>
       <div class="doctor-cards">
         <div class="doctor-card" v-for="doctor in doctors" :key="doctor.name">
           <div class="doctor-info">
             <div class="doctor-image">
-              <img src="/placeholder.svg" :alt="doctor.name" />
+              <img src="" :alt="doctor.name" />
             </div>
             <div>
               <h3 class="doctor-name">{{ doctor.name }}</h3>
@@ -174,40 +172,98 @@ const doctors = [
 
 <style scoped>
 /* Header */
+.service-features {
+  padding: 20px;
+  background-color: #FDF8F6;
+  border-radius: 12px;
+}
+
+.service-features__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.service-features__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.service-features__item:hover {
+  transform: translateY(-2px);
+}
+
+.service-features__icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-features__icon {
+  width: 24px;
+  height: 24px;
+  color: #F97316;
+}
+
+.service-features__content {
+  flex: 1;
+}
+
+.service-features__heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+.service-features__text {
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .service-features__container {
+    grid-template-columns: 1fr;
+  }
+}
+.title img{
+  width: 200px;
+}
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.logo {
-  width: 2rem;
-  height: 2rem;
-  background-color: #3b82f6;
-  border-radius: 9999px;
+  max-height: 100px;
 }
 
 .title {
-  font-size: 1.25rem;
+  font-size: 15rem;
   font-weight: bold;
+  margin: 0px;
 }
 
 .nav {
-  display: none;
+  display: flex; 
+  justify-content: flex-end; 
+  gap: 2rem; 
 }
 
+
 .nav-link {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: medium;
   margin-right: 2rem;
   color: #4b5563;
+  text-decoration: none;
 }
 
 .nav-link:hover {
-  color: #1f2937;
+  color: #90b5e9;
 }
 
 .btn-primary {
@@ -249,6 +305,10 @@ const doctors = [
 
 .info-cards {
   margin-top: 2rem;
+  background: #9ca3af;
+  border-radius: 15px;
+  padding: 5px;
+  display: flex;
 }
 
 .info-card {
@@ -272,6 +332,7 @@ const doctors = [
   height: auto;
   border-radius: 1rem;
   object-fit: cover;
+  max-height: 850px;
 }
 
 /* Services Section */
@@ -317,9 +378,7 @@ const doctors = [
   color: #4b5563;
 }
 
-/* Add other sections similarly... */
 
-/* Stats Section */
 .stats {
   background-color: #111827;
   color: white;
@@ -347,4 +406,143 @@ const doctors = [
 .stats-description {
   color: #9ca3af;
 }
+
+.why-us {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  background-color: #E6F0FF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  color: #1a1a1a;
+}
+
+.feature-description {
+  color: #4b5563;
+  margin-top: 0.5rem;
+}
+
+.doctors {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.doctors-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+}
+
+.btn-secondary:hover {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.doctor-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.doctor-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.doctor-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.doctor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.doctor-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.doctor-specialty {
+  color: #4b5563;
+}
+
+.doctor-availability {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 1024px) {
+  .service-cards,
+  .feature-cards,
+  .doctor-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .service-cards,
+  .feature-cards,
+  .doctor-cards {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
+

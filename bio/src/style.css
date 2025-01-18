@@ -1,6 +1,7 @@
 /* style.css */
 
 /* Header */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -10,12 +11,6 @@
   margin: 0 auto;
 }
 
-.logo {
-  width: 2rem;
-  height: 2rem;
-  background-color: #3b82f6;
-  border-radius: 9999px;
-}
 
 .title {
   font-size: 1.25rem;
