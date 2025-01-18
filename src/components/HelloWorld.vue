@@ -39,7 +39,7 @@
         
       </div>
       <div class="hero-image">
-        <img src="../assets/pexels-artempodrez-5726706.jpg" alt="Medical Care" />
+        <img src="https://equimed.es/wp-content/uploads/2023/11/mantenimiento_cuidado_equipos_medicos_pic03_20231124_blog_equimed.jpg" alt="Medical Care" />
       </div>
     </section>
 
@@ -505,6 +505,7 @@ header span {
   font-weight: bold;
   line-height: 1.2;
   margin: 0px;
+  color: #112e5f;
 }
 
 .hero-description {
@@ -541,10 +542,12 @@ header span {
 
 .hero-image img {
   width: 100%;
+  margin-top: 28px;
   height: auto;
   border-radius: 1rem;
   object-fit: cover;
   max-height: 450px;
+  min-height: 550px;
 }
 
 /* Services Section */
@@ -779,24 +782,38 @@ header span {
 }
 
 @media (max-width: 430px) {
-  .service-cards,
-  .feature-cards,
-  .doctor-cards {
-    grid-template-columns: 1fr;
+    .service-cards,
+    .feature-cards,
+    .doctor-cards {
+      grid-template-columns: 1fr;
+    }
+    .hero-image{
+      display: none;
+    }
+    .title{
+      display: none;
+    }
+    .header{
+      min-height: 50px;
+    }
+    .flex{
+      display: none;
+    }
+    .nav{
+      gap: 0px;
+      justify-content: space-around;
+      width: 100%;
+    }
+    .nav-link{
+      display: flex;
+      text-align:center ;
+      align-items: center;
+      justify-content: center;
+      justify-items: center;
+    }
+    .stats-cards{
+      grid-template-columns: 1fr;
+    }
   }
-  .hero-image{
-    display: none;
-  }
-  .nav-link{
-    display: flex;
-    text-align:center ;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-  }
-  .stats-cards{
-    grid-template-columns: 1fr;
-  }
-}
 </style>
 
