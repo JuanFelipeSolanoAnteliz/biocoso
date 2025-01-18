@@ -3,7 +3,7 @@
     <!-- Header -->
     <header class="header">
       <div class="flex items-center gap-2">
-        <span class="title"><img src="../assets/01_01-2.jpg" alt=""></span>
+        <span class="title"><img src="../assets/BiocentralElectronica.JPG" alt=""></span>
       </div>
       <nav class="nav">
         <a href="#" class="nav-link">Home</a>
@@ -17,17 +17,17 @@
     <section class="hero">
       <div class="hero-text">
         <h1 class="hero-title">Biocentral<br />Electronica</h1>
-        <p class="hero-description">Portafolio de servicios 2024</p>
+        <p class="hero-description">Cuidamos la tecnología que cuida la vida.</p>
         <div class="info-cards">
           <section class="service-features">
             <div class="service-features__container">
               <div v-for="(feature, index) in features" :key="index" class="service-features__item">
                 <div class="service-features__icon-container">
-                  <component :is="feature.icon" class="service-features__icon" />
+                  <img :src="feature.icon" class="service-features__icon" />
                 </div>
                 <div class="service-features__content">
                   <h3 class="service-features__heading">{{ feature.title }}</h3>
-                  <p class="service-features__text">{{ feature.description }}</p>
+                  <p class="service-features__text" v-html="formatDescription(feature.description)"></p>
                 </div>
               </div>
             </div>
@@ -44,26 +44,26 @@
 
     <!-- Services Section -->
     <section class="services">
-      <h2 class="section-title">Nuestros Servicios</h2>
-      <div class="service-cards">
-        <div class="service-card" v-for="service in services" :key="service.title">
-          <img :src="service.image" :alt="service.title" class="service-image" />
-          <h3 class="service-title">{{ service.title }}</h3>
-          <p class="service-description">{{ service.description }}</p>
-        </div>
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="service-cards">
+      <div class="service-card" v-for="service in services" :key="service.title">
+        <img :src="service.image" class="service-image" />
+        <h3 class="service-title">{{ service.title }}</h3>
+        <p class="service-description" v-html="formatDescription(service.description)"></p>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- Why Us Section -->
     <section class="why-us">
       <h2 class="section-title">¿Por qué nosotros?</h2>
       <div class="feature-cards">
-        <div class="feature-card" v-for="feature in features" :key="feature.title">
+        <div class="feature-card" v-for="about in about" :key="about.title">
           <div class="feature-icon">
-            <component :is="feature.icon" class="icon" />
+            <component :is="about.icon" class="icon" />
           </div>
-          <h3 class="feature-title">{{ feature.title }}</h3>
-          <p class="feature-description">{{ feature.description }}</p>
+          <h3 class="feature-title">{{ about.title }}</h3>
+          <p class="feature-description">{{ about.description }}</p>
         </div>
       </div>
     </section>
@@ -71,22 +71,15 @@
     <!-- Doctors Section -->
     <section class="doctors">
       <div class="doctors-header">
-        <h2 class="section-title">Vision y Mision</h2>
+        <h2 class="section-title">Vision, Mision y Objetivo general</h2>
       </div>
       <div class="doctor-cards">
         <div class="doctor-card" v-for="doctor in doctors" :key="doctor.name">
           <div class="doctor-info">
-            <div class="doctor-image">
-              <img src="" :alt="doctor.name" />
-            </div>
             <div>
               <h3 class="doctor-name">{{ doctor.name }}</h3>
               <p class="doctor-specialty">{{ doctor.specialty }}</p>
             </div>
-          </div>
-          <div class="doctor-availability">
-            <Clock class="icon" />
-            <span>{{ doctor.availability }}</span>
           </div>
         </div>
       </div>
@@ -96,16 +89,16 @@
     <section class="stats">
       <div class="stats-cards">
         <div class="stats-card">
-          <div class="stats-value">99%</div>
-          <p class="stats-description">Patient Satisfaction</p>
+          <div class="stats-value"><img src="https://www.svgrepo.com/show/499760/mail-mail-email.svg" alt=""></div>
+          <p class="stats-description">biocentralelectronica@gmail.com</p>
         </div>
         <div class="stats-card">
-          <div class="stats-value">2,300+</div>
-          <p class="stats-description">Medical Professionals</p>
+          <div class="stats-value"><img src="https://www.svgrepo.com/show/499767/volume-on.svg" alt=""></div>
+          <p class="stats-description">+57 315 600 3326</p>
         </div>
         <div class="stats-card">
-          <div class="stats-value">43</div>
-          <p class="stats-description">Professional Services</p>
+          <div class="stats-value"><img src="https://www.svgrepo.com/show/499777/navigation.svg" alt=""></div>
+          <p class="stats-description">Neiva, Huila</p>
         </div>
       </div>
     </section>
@@ -115,63 +108,127 @@
 <script setup>
 import { Calendar, Star, Activity, Shield, Users, Clock } from 'lucide-vue-next'
 
+// Función para formatear la descripción
+const formatDescription = (text) => {
+  return text.replace(/\n/g, '<br>')
+}
+
 const services = [
   {
-    title: "Immediate Care",
-    description: "Get immediate medical attention when you need it most",
-    image: "/placeholder.svg",
+    title: "Servicio Tecnico",
+    description: "Prestamos el servicio de mantenimiento preventivo y correctivo a los equipos de todas las especialidades. Todo nuestro personal posee registro ante el INVIMA y las capacitaciones requeridas para atender sus requerimientos.",
+    image: "https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&w=600",
+    more:"hola esta es la info extra"
   },
   {
-    title: "Dental Care",
-    description: "Professional dental services for a healthy smile",
-    image: "/placeholder.svg",
+    title: "Elaboración de planes de mantenimiento",
+    description: `El plan incluye los objetivos, las metas y la programación de actividades.   
+    Para esto la empresa cuenta con un software que facilita un mejor manejo
+    de la información de los equipos médicos.`,
+    image: "https://media.istockphoto.com/id/2148853397/es/foto/ventana-trabajo-en-equipo-y-pizarra-para-lluvia-de-ideas-en-reuniones-gente-de-negocios-con.jpg?b=1&s=612x612&w=0&k=20&c=p9vrM9FGMbqo0HJjhmFW59H4F0LP3AgUBM3vm7hajLM=",
+    more:"hola esta es la info extra"
   },
   {
-    title: "Diagnostic Center",
-    description: "Advanced diagnostic services for accurate results",
-    image: "/placeholder.svg",
+    title: "Asesorías",
+    description: `Asesoramos y acompañamos a nuestros clientes en la adquisición de nuevos equipos, adecuaciones físicas, cumplimiento de requisitos de habilitación, creación de hojas de vida de los equipos y el desarrollo de programas de mantenimiento.`,
+    image: "https://media.istockphoto.com/id/2159445929/es/foto/negocios-personas-y-redacci%C3%B3n-de-plan-informe-y-papeleo-para-el-discurso-de-pol%C3%ADticos-y.jpg?b=1&s=612x612&w=0&k=20&c=vovHHZYzx2b1EllV-3kNhQpYoK8J1Xau7DPSSmI83zo=",
+    more:"hola esta es la info extra"
+  },
+  {
+    title: "Servicios de calidad",
+    description: `Biocentral cuenta con simuladores y patrones para la verificación del mantenimiento, buscando garantizar que los equipos funcionen correctamente en momento de entrar nuevamente al servicio después de un preventivo y/o correctivo garantizado la calidad del mismo.`,
+    image: "https://images.pexels.com/photos/5996650/pexels-photo-5996650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    more:"hola esta es la info extra"
+  },
+  {
+    title: "Outsourcing de Mantenimiento",
+    description: `Buscamos que las empresas de salud, Clínicas, IPS, Hospitales, Centros de Estética y afines se dediquen a su Core de Negocio. Nos encargamos del departamento de Mantenimiento aumentando la eficiencia y eficacia del servicio técnico dentro de la institución.`,
+    image: "https://images.pexels.com/photos/5439439/pexels-photo-5439439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    more:"hola esta es la info extra"
+  },
+  {
+    title: "Asesoría y Capacitación Técnica en Mantenimiento",
+    description: `Prestamos este tipo de servicio con el fin de que cada uno de nuestros clientes garanticen a sus pacientes que son atendidos con equipos e instrumentos en funcionamiento permanente, bajo criterios enfocados en la mejora continua de la calidad`,
+    image: "https://images.pexels.com/photos/7698715/pexels-photo-7698715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    more:"hola esta es la info extra"
   },
 ]
 
 const features = [
   {
-    title: "DNA Diagnostics",
-    description: "Advanced genetic testing and analysis for personalized care",
+    title: "Honestidad",
+    description: " Respetar derechos y cumplir deberes.",
+    icon: "https://www.svgrepo.com/show/196250/loyalty.svg",
+  },
+  {
+    title: "Competitividad",
+    description: "Efectividad para el crecimiento constante.",
+    icon: "https://www.svgrepo.com/show/506985/gen-flag-6.svg",
+  },
+  {
+    title: "Oportunidad",
+    description: "Servicios puntuales y respuestas efectivas.",
+    icon: "https://www.svgrepo.com/show/418145/check.svg",
+  },
+  {
+    title: "Compromiso",
+    description: "Pasión y empoderamiento en nuestras acciones.",
+    icon: "https://www.svgrepo.com/show/493428/hands-to-shake-hands.svg",
+  },
+]
+
+const about = [
+  {
+    title: "Experiencia en el campo",
+    description: "Somos expertos en servicios biomédicos, ofreciendo mantenimiento preventivo y correctivo para equipos médicos, estéticos y odontológicos. Garantizamos soluciones efectivas para el óptimo desempeño de sus equipos.",
     icon: Activity,
   },
   {
-    title: "Insurance",
-    description: "We work with major insurance providers for your convenience",
+    title: "Estandares de Seguridad",
+    description: "Cumplimos con estándares y normativas vigentes, priorizando la seguridad, el cumplimiento legal y la confianza de nuestros clientes.",
     icon: Shield,
   },
   {
-    title: "Medical Support",
-    description: "24/7 medical support from our qualified professionals",
+    title: "Personal Calificado",
+    description: "Contamos con un equipo altamente calificado, capacitado constantemente y con amplia experiencia, asegurando resultados confiables y de calidad en cada servicio.",
     icon: Users,
-  },
+  }
 ]
 
 const doctors = [
   {
-    name: "Dr. Jane Smith",
-    specialty: "Cardiologist",
+    name: "Misión",
+    specialty: "Ofrecer servicios biomédicos de excelencia, apoyados en tecnología y cumplimiento de estándares nacionales.",
     availability: "MON-FRI, 09:00-17:00",
   },
   {
-    name: "Dr. John Davis",
-    specialty: "Neurologist",
+    name: "Visión",
+    specialty: "Ser líderes en servicios biomédicos en Colombia para 2030, ampliando nuestra oferta y fortaleciendo la confianza de nuestros clientes.",
     availability: "MON-THU, 10:00-18:00",
   },
   {
-    name: "Dr. Sarah Wilson",
-    specialty: "Pediatrician",
+    name: "Objetivo",
+    specialty: "Ofrecer servicios biomédicos de excelencia, apoyados en tecnología y cumplimiento de estándares nacionales.",
     availability: "TUE-SAT, 09:00-16:00",
   },
 ]
+
+// Exportamos la función formatDescription para usarla en el template
+defineExpose({ formatDescription })
 </script>
 
 <style scoped>
-/* Header */
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Rubik", serif;
+}
+
+.stats-value img {
+  width: 35px;
+}
+
 .service-features {
   padding: 20px;
   background-color: #FDF8F6;
@@ -182,6 +239,7 @@ const doctors = [
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+
 }
 
 .service-features__item {
@@ -233,12 +291,17 @@ const doctors = [
   }
 }
 .title img{
-  width: 200px;
+  width: 100%;
+  max-height: 150px;
+
 }
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-height: 100px;
+  overflow: hidden;
+  margin-bottom: 25px;
 }
 
 .title {
@@ -249,7 +312,7 @@ const doctors = [
 
 .nav {
   display: flex; 
-  justify-content: flex-end; 
+
   gap: 2rem; 
 }
 
@@ -282,9 +345,10 @@ const doctors = [
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  padding: 4rem 1rem;
+  /* padding: 4rem 1rem; */
   max-width: 1200px;
   margin: 0 auto;
+  /* background: red; */
 }
 
 .hero-text {
@@ -292,9 +356,10 @@ const doctors = [
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: bold;
   line-height: 1.2;
+  margin: 0px;
 }
 
 .hero-description {
@@ -305,10 +370,11 @@ const doctors = [
 
 .info-cards {
   margin-top: 2rem;
-  background: #9ca3af;
+  background: #112e5f;
   border-radius: 15px;
   padding: 5px;
   display: flex;
+  min-width: 420px;
 }
 
 .info-card {
@@ -332,7 +398,7 @@ const doctors = [
   height: auto;
   border-radius: 1rem;
   object-fit: cover;
-  max-height: 850px;
+  max-height: 450px;
 }
 
 /* Services Section */
@@ -340,6 +406,7 @@ const doctors = [
   padding: 4rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  min-width: 430px;
 }
 
 .section-title {
@@ -360,6 +427,8 @@ const doctors = [
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .service-image {
   width: 100%;
@@ -383,6 +452,7 @@ const doctors = [
   background-color: #111827;
   color: white;
   padding: 4rem 1rem;
+  min-width: 430px;
 }
 
 .stats-cards {
@@ -411,6 +481,7 @@ const doctors = [
   padding: 4rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  min-width: 430px;
 }
 
 .feature-cards {
@@ -457,6 +528,7 @@ const doctors = [
   padding: 4rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  min-width: 430px;
 }
 
 .doctors-header {
@@ -542,6 +614,13 @@ const doctors = [
   .feature-cards,
   .doctor-cards {
     grid-template-columns: 1fr;
+  }
+  .hero-image{
+    display: none;
+  }
+
+  .hero-title{
+    display: none;
   }
 }
 </style>
