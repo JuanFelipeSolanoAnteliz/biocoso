@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-white">
     <div class="animated-background"></div>
     <!-- Header -->
-    <header id="header" class="header">
+    <header id="header" class="header animate-on-scroll">
       <div class="flex items-center gap-2">
         <span class="title"><img src="../assets/BiocentralElectronica.JPG" alt=""></span>
       </div>
@@ -15,7 +15,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero">
+    <section id="hero" class="hero animate-on-scroll">
       <div class="hero-text">
         <h1 class="hero-title">Biocentral<br />Electronica</h1>
         <p class="hero-description">Cuidamos la tecnología que protege vidas, asegurando su rendimiento y confiabilidad para un mejor cuidado de la salud.</p>
@@ -44,7 +44,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="service" class="services">
+    <section id="service" class="services animate-on-scroll">
     <h2 class="section-title">Nuestros Servicios</h2>
     <div class="service-cards">
       <div class="service-card" v-for="service in services" :key="service.title">
@@ -56,7 +56,7 @@
   </section>
 
     <!-- Why Us Section -->
-    <section id="why" class="why-us">
+    <section id="why" class="why-us animate-on-scroll">
       <h2 class="section-title">¿Por qué nosotros?</h2>
       <div class="feature-cards">
         <div class="feature-card" v-for="about in about" :key="about.title">
@@ -70,7 +70,7 @@
     </section>
 
     <!-- Doctors Section -->
-    <section class="doctors">
+    <section class="doctors animate-on-scroll">
       <div class="doctors-header">
         <h2 class="section-title">Vision, Mision y Objetivo general</h2>
       </div>
@@ -87,7 +87,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section id="stats" class="stats">
+    <section id="stats" class="stats animate-on-scroll">
       <div class="stats-cards">
         <div class="stats-card">
           <div class="stats-value"><img src="https://www.svgrepo.com/show/499760/mail-mail-email.svg" alt=""></div>
@@ -107,7 +107,27 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 import { Calendar, Star, Activity, Shield, Users, Clock } from 'lucide-vue-next'
+
+const setupIntersectionObserver = () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show')
+      }
+    })
+  }, { threshold: 0.1 })
+
+  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+    observer.observe(el)
+  })
+}
+
+// Add the animation setup to the onMounted hook
+onMounted(() => {
+  setupIntersectionObserver()
+})
 
 // Función para formatear la descripción
 const formatDescription = (text) => {
@@ -223,9 +243,22 @@ const doctors = [
 
 // Exportamos la función formatDescription para usarla en el template
 defineExpose({ formatDescription })
+
 </script>
 
 <style scoped>
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 *{
   margin: 0px;
   padding: 0px;
@@ -414,6 +447,7 @@ header span {
   max-height: 100px;
   overflow: hidden;
   margin-bottom: 25px;
+  min-width: 95vw;
 }
 
 .title {
