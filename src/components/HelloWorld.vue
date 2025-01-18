@@ -152,7 +152,7 @@ const services = [
   {
     title: "Servicio Tecnico",
     description: "Prestamos el servicio de mantenimiento preventivo y correctivo a los equipos de todas las especialidades. Todo nuestro personal posee registro ante el INVIMA y las capacitaciones requeridas para atender sus requerimientos.",
-    image: "https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "https://i.ebayimg.com/images/g/08QAAOSwj-dlxfR~/s-l1600.jpg",
     more:"hola esta es la info extra"
   },
   {
@@ -166,7 +166,7 @@ const services = [
   {
     title: "Asesorías",
     description: `Asesoramos y acompañamos a nuestros clientes en la adquisición de nuevos equipos, adecuaciones físicas, cumplimiento de requisitos de habilitación, creación de hojas de vida de los equipos y el desarrollo de programas de mantenimiento.`,
-    image: "https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=600=",
+    image: "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     more:"hola esta es la info extra"
   },
   {
@@ -184,7 +184,7 @@ const services = [
   {
     title: "Asesoría y Capacitación Técnica en Mantenimiento",
     description: `Prestamos este tipo de servicio con el fin de que cada uno de nuestros clientes garanticen a sus pacientes que son atendidos con equipos e instrumentos en funcionamiento permanente, bajo criterios enfocados en la mejora continua de la calidad`,
-    image: "https://images.pexels.com/photos/5712689/pexels-photo-5712689.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&w=600",
     more:"hola esta es la info extra"
   },
 ]
@@ -263,7 +263,7 @@ defineExpose({ formatDescription })
 
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(0px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   margin: 0px;
 }
@@ -339,6 +339,23 @@ header span {
 
 /* Responsive styles */
 @media (max-width: 768px) {
+
+  .doctors {
+      margin: 0 ;
+      min-width: 430px;
+      background-color: #06173d;
+    }
+  .doctors-header{
+    margin-bottom: 0rem;
+  }
+  .section-title{
+    margin: 0px;
+  }
+
+  .doctors-header{
+    margin-bottom: 0px;
+  }
+
   .nav-links {
     display: flex;
     flex-direction: column;
@@ -563,7 +580,7 @@ header span {
 
 /* Services Section */
 .services {
-  padding: 4rem 6rem;
+  padding: 2rem 6rem;
   margin: 0 auto;
   min-width: 430px;
   max-width:100% ;
@@ -572,7 +589,8 @@ header span {
 .section-title {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+
 }
 
 #blanco{
@@ -583,7 +601,6 @@ header span {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
-
 }
 
 .service-card {
@@ -733,7 +750,6 @@ header span {
 
 .doctors {
   padding: 4rem 8rem;
-   
   margin: 0 auto;
   min-width: 430px;
   background-color: #06173d;
@@ -836,14 +852,76 @@ header span {
   .stats-cards{
     grid-template-columns: 1fr;
   }
+  .doctors{
+    padding: 2rem 2rem;
+  }
+  .seccion-title{
+    margin-bottom: 0px;
+  }
 }
 
 @media (max-width: 430px) {
+
+    .doctors {
+      margin: 0 auto;
+      min-width: 430px;
+      background-color: #06173d;
+    }
+    
+    .header {
+      padding-right:0px;
+      margin-bottom: 0px;
+    }
+
     .service-cards,
     .feature-cards,
     .doctor-cards {
       grid-template-columns: 1fr;
     }
+    .info-cards{
+      min-width: 90px;
+    }
+    .hero-text{
+      width: 96vw;
+      margin-left: 8px;
+    }
+    .hero-title{
+      width: 100%;
+    }
+    .service-features__item{
+      height: 90px;
+    }
+    .services{
+      min-width: 90px;
+      padding: 2rem .5rem;
+    }
+
+    .service-card-front {
+      /* background: red; */
+      padding: 0 1rem;
+
+    }
+    .service-image{
+      height: 250px;
+    }
+
+
+    .why-us{
+      padding: 2rem .5rem;
+      min-width: 90px;
+    }
+    .doctors{
+      min-width: 90px;
+    }
+    
+    .doctors-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color:white;
+      margin:0;
+    }
+
     .hero-image{
       display: none;
     }
@@ -871,6 +949,9 @@ header span {
     }
     .stats-cards{
       grid-template-columns: 1fr;
+    }
+    .stats{
+      min-width: 90px;
     }
   }
 </style>
