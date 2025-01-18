@@ -255,10 +255,18 @@ defineExpose({ formatDescription })
 
 <style scoped>
 
+.doctors{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 #service{
   margin-top:10px;
   background: #06173d;
   width: 100vw;
+  text-align: center;
 }
 
 .animate-on-scroll {
@@ -599,13 +607,17 @@ header span {
 
 .service-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(300px, 1fr)); /* Forzamos 3 columnas */
+  grid-template-rows: repeat(2, auto); /* 2 filas */
   gap: 2rem;
+  justify-content: center;
+  align-items: start; /* Alinea las tarjetas al inicio para mantener consistencia */
+  margin: 0 auto;
 }
 
 .service-card {
   perspective: 1000px;
-  height: 400px; 
+  height: 300px; 
   background: #06173d;
 }
 
@@ -703,6 +715,7 @@ header span {
   max-width: 1200px;
   margin: 0 auto;
   min-width: 430px;
+  text-align: center;
 }
 
 .feature-cards {
