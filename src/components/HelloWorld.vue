@@ -78,7 +78,7 @@
     <!-- Doctors Section -->
     <section class="doctors animate-on-scroll">
       <div class="doctors-header">
-        <h2 class="section-title">Vision, Mision y Objetivo general</h2>
+        <h2 class="section-title">Visión, Misión y Objetivo general</h2>
       </div>
       <div class="doctor-cards">
         <div class="doctor-card" v-for="doctor in doctors" :key="doctor.name">
@@ -617,7 +617,7 @@ header span {
 
 .service-card {
   perspective: 1000px;
-  height: 300px; 
+  height: 450px;
   background: #06173d;
 }
 
@@ -660,7 +660,7 @@ header span {
 
 .service-image {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
