@@ -1,5 +1,23 @@
 <template>
   <div class="min-h-screen bg-white">
+      <!-- intro section -->
+      <section id='intro' class='section section-main active' v-show="showMainSection">
+      <div class='container-fluid'>
+        <div class='v-align'>
+          <div class='inner'>
+            <div class='intro-text'>
+                <img class="imgLogoIntro" src="../assets/BiocentralElectronica-removebg.png" alt="" srcset="">
+              <div class='intro-btns'>
+                <a href='#about' class='btn-custom section-toggle' data-section='about' @click.prevent="toggleMainSection">
+                  Descubre mas
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <div v-show="!showMainSection">
     <!-- Header -->
     <header id="header" class="header animate-on-scroll">
       <div class="flex items-center gap-2">
@@ -110,12 +128,18 @@
       </div>
     </section>
   </div>
+  </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { Calendar, Star, Activity, Shield, Users, Clock } from 'lucide-vue-next'
 
+const showMainSection = ref(true)
+
+const toggleMainSection = () => {
+  showMainSection.value = !showMainSection.value
+}
 
 const setupIntersectionObserver = () => {
   const observer = new IntersectionObserver((entries) => {
@@ -1005,6 +1029,340 @@ header span {
 .stats{
   min-width: 90px;
 }
+
+.imgLogoIntro{
+  min-width: 90vw;
+  margin-bottom: 30px;
+}
+
+.btn-custom::before{
+  margin-right: 20px;
+}
+
+.btn-custom a{
+
+}
+
+.btn-custom::after{
+  margin-right: 20px;
+}
+
+}
+
+.imgLogoIntro{
+  width: 70vw;
+  position: relative;
+  top: 40px;
+}
+
+.section-main {
+  background-size: cover;
+  background-image: url(https://cdn.discordapp.com/attachments/1330014896540352522/1330619812648325232/DALLE_2025-01-19_14.27.50_-_A_modern_empty_operating_room_in_a_wide_horizontal_layout_with_surgical_lights_on_the_ceiling_and_an_adjustable_operating_table_in_the_center._The_de.webp?ex=678ea3c5&is=678d5245&hm=f849717fa815823a6a4cc20e3fc5ef39d0f376d0cad2fef508c71c186780b612&);
+  background-color: rgba(255, 255, 255, 0.3);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  filter: blur(.1px);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-main:before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(https://cdn.discordapp.com/attachments/1330014896540352522/1330619812648325232/DALLE_2025-01-19_14.27.50_-_A_modern_empty_operating_room_in_a_wide_horizontal_layout_with_surgical_lights_on_the_ceiling_and_an_adjustable_operating_table_in_the_center._The_de.webp?ex=678ea3c5&is=678d5245&hm=f849717fa815823a6a4cc20e3fc5ef39d0f376d0cad2fef508c71c186780b612&);
+  background-size: cover; 
+  background-position: center; 
+  filter: blur(1px);
+  z-index: -1;
+}
+
+.section-main .container-fluid {
+  position: relative;
+  z-index: 1;
+}
+
+.imgMissionVisison{
+	width: 10%;
+}
+
+.intro-text{
+	padding:20px;
+	text-align:center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 98vw;
+  z-index: 1;
+  position: relative;
+}
+.intro-text > h1{
+	margin:0;
+	color:#FFF;
+	text-transform:uppercase;
+	font-weight:900;
+	letter-spacing:8px;
+	font-size:78px;
+}
+.intro-text > p{
+	font-size:18px;
+	color:#FFF;
+	color:rgba(255,255,255,.8);
+	margin-top:15px;
+	margin-bottom:0;
+	font-weight:300;
+	font-style:italic;
+	letter-spacing:2px;
+}
+.intro-text > .intro-btns{
+	margin-top:45px;
+}
+.intro-text > .intro-btns > .btn-custom{
+	margin:0 15px;
+}
+a.btn-custom{
+	color:#FFF;
+	text-decoration:none;
+}
+.btn-custom{
+	color:#FFF;
+	letter-spacing:4px;
+	text-transform:uppercase;
+	text-decoration:none;
+	text-align:center;
+	font-size:11px;
+	font-weight:400;
+	display:inline-block;
+	display:inline;
+	zoom:1;
+  left: 20px;
+  top: 20px;
+	line-height:1em;
+	padding:17px 32px;
+	position:relative;
+	z-index:5;
+	background:rgba(150, 150, 150, 0.667);
+	border:none;
+}
+.btn-custom:after{
+	content: ' ';
+	position:absolute;
+	top:0;
+	left:-10px;
+	right:-10px;
+	bottom:0;
+	-webkit-transform:rotate(-4deg);
+	-moz-transform:rotate(-4deg);
+	-ms-transform:rotate(-4deg);
+	-o-transform:rotate(-4deg);
+	transform:rotate(-4deg);
+	z-index:-1;
+	opacity:0;
+	visibility:hidden;
+	background:#06173d;
+	-webkit-transition:all .3s cubic-bezier(.785,.135,.15,.86);
+	-moz-transition:all .3s cubic-bezier(.785,.135,.15,.86);
+	transition:all .3s cubic-bezier(.785,.135,.15,.86);
+}
+.btn-custom:before{
+	content: ' ';
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index:2;
+	border:solid 1px #FFF;
+	border-color:rgba(255,255,255,.8);
+}
+.btn-custom:hover:after{
+	opacity:1;
+	visibility:visible;
+}
+.btn-custom.btn-color:after{
+	background:#303F9F;
+}
+.btn-custom.btn-color:hover:after{
+	opacity:.4;
+}
+.btn-custom.btn-color{
+	color:#06173d;
+}
+.btn-custom.btn-color > span:before,
+.btn-custom.btn-color > span:after{
+	background:#06173d;
+}
+.btn-custom.btn-color:before{
+	border-color:#06173d;
+}
+body.section-switching .animation-block{
+	position:absolute;
+	left:0;
+	height:0%;
+	width:100%;
+	background:#E0E0E0;
+	z-index:199;
+}
+body.section-switching.down .animation-block{
+	-webkit-animation: anim-down 2.5s cubic-bezier(.785,.135,.15,.86);
+	-moz-animation: anim-down 2.5s cubic-bezier(.785,.135,.15,.86);
+	animation: anim-down 2.5s cubic-bezier(.785,.135,.15,.86);
+}
+body.section-switching.up .animation-block{
+	-webkit-animation: anim-up 2.5s cubic-bezier(.785,.135,.15,.86);
+	-moz-animation: anim-up 2.5s cubic-bezier(.785,.135,.15,.86);
+	animation: anim-up 2.5s cubic-bezier(.785,.135,.15,.86);
+}
+@-webkit-keyframes anim-down{
+	0%{
+		bottom:0;
+		height:0;
+	}
+	45%{
+		bottom:0;
+		height:100%;
+	}
+	55%{
+		bottom:0;
+		height:100%;
+	}
+	100%{
+		height:0%;
+		top:0;
+	}
+}
+@-moz-keyframes anim-down{
+	0%{
+		bottom:0;
+		height:0;
+	}
+	45%{
+		bottom:0;
+		height:100%;
+	}
+	55%{
+		bottom:0;
+		height:100%;
+	}
+	100%{
+		height:0%;
+		top:0;
+	}
+}
+@keyframes anim-down{
+	0%{
+		bottom:0;
+		height:0;
+	}
+	45%{
+		bottom:0;
+		height:100%;
+	}
+	55%{
+		bottom:0;
+		height:100%;
+	}
+	100%{
+		height:0%;
+		top:0;
+	}
+}
+@-webkit-keyframes anim-up{
+	0%{
+		top:0;
+		height:0;
+	}
+	45%{
+		top:0;
+		height:100%;
+	}
+	55%{
+		top:0;
+		height:100%;
+	}
+	55.1%{
+		bottom:0;
+		top:auto;
+		height:100%;
+	}
+	100%{
+		height:0%;
+		bottom:0;
+		top:auto;
+	}
+}
+@-moz-keyframes anim-up{
+	0%{
+		top:0;
+		height:0;
+	}
+	45%{
+		top:0;
+		height:100%;
+	}
+	55%{
+		top:0;
+		height:100%;
+	}
+	55.1%{
+		bottom:0;
+		top:auto;
+		height:100%;
+	}
+	100%{
+		height:0%;
+		bottom:0;
+		top:auto;
+	}
+}
+@keyframes anim-up{
+	0%{
+		top:0;
+		height:0;
+	}
+	45%{
+		top:0;
+		height:100%;
+	}
+	55%{
+		top:0;
+		height:100%;
+	}
+	55.1%{
+		bottom:0;
+		top:auto;
+		height:100%;
+	}
+	100%{
+		height:0%;
+		bottom:0;
+		top:auto;
+	}
+}
+.section-main{
+	padding:0;
+}
+.section-main, .section-main > .container-fluid{
+	height:100%;
+	width:100%;
+}
+.v-align{
+	display:table;
+	height:100%;
+	width:100%;
+}
+.v-align > .inner{
+	height:100%;
+	width:100%;
+	display:table-cell;
+	vertical-align:middle;
 }
 </style>
 
