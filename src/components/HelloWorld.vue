@@ -346,36 +346,6 @@ header span {
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
-
-  .doctors {
-      margin: 0 ;
-      min-width: 430px;
-      background-color: #06173d;
-    }
-  .doctors-header{
-    margin-bottom: 0rem;
-  }
-  .section-title{
-    margin: 0px;
-  }
-
-  .doctors-header{
-    margin-bottom: 0px;
-  }
-
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: white;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-}
-
 
 @keyframes scale-up-ver-top {
   0% {
@@ -486,7 +456,6 @@ header span {
 }
 
 .title {
-  font-size: 15rem;
   font-weight: bold;
   margin: 0px;
 }
@@ -871,103 +840,171 @@ header span {
   .seccion-title{
     margin-bottom: 0px;
   }
+
+  .service-features{
+    width: 100%;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+
+.doctors {
+    margin: 0 ;
+    min-width: 430px;
+    background-color: #06173d;
+  }
+.doctors-header{
+  margin-bottom: 0rem;
+}
+.section-title{
+  margin: 0px;
+}
+
+.doctors-header{
+  margin-bottom: 0px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.title{
+  background:red ;
+  font-size: 0rem;
+}
+.hero{
+  grid-template-columns: 1fr;
+  gap:0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-title{
+  text-align: center;
+}
+
+.hero-description{
+  text-align: center;
+}
+
+.hero-image{
+  display: none;
+}
 }
 
 @media (max-width: 430px) {
 
-    .doctors {
-      margin: 0 auto;
-      min-width: 430px;
-      background-color: #06173d;
-    }
-    .hero-description{
-      text-align: center;
-    }
-    .header {
-      padding-right:0px;
-      margin-bottom: 0px;
-    }
-
-    .service-cards,
-    .feature-cards,
-    .doctor-cards {
-      grid-template-columns: 1fr;
-    }
-    .info-cards{
-      min-width: 90px;
-    }
-    .hero-text{
-      width: 96vw;
-      margin-left: 8px;
-    }
-    .hero-title{
-      width: 100%;
-    }
-    .service-features__item{
-      height: 90px;
-    }
-    .services{
-      min-width: 90px;
-      padding: 2rem .5rem;
-    }
-
-    .service-card-front {
-      /* background: red; */
-      padding: 0 1rem;
-
-    }
-    .service-image{
-      height: 250px;
-    }
-
-
-    .why-us{
-      padding: 2rem .5rem;
-      min-width: 90px;
-    }
-    .doctors{
-      min-width: 90px;
-    }
-    
-    .doctors-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color:white;
-      margin:0;
-    }
-
-    .hero-image{
-      display: none;
-    }
-    .title{
-      display: none;
-    }
-    .header{
-      min-height: 50px;
-    }
-    .flex{
-      display: none;
-    }
-    .nav{
-      gap: 0px;
-      justify-content: space-around;
-      width: 100%;
-
-    }
-    .nav-link{
-      display: flex;
-      text-align:center ;
-      align-items: center;
-      justify-content: center;
-      justify-items: center
-    }
-    .stats-cards{
-      grid-template-columns: 1fr;
-    }
-    .stats{
-      min-width: 90px;
-    }
+  .min-h-screen {
+    width: 100%;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
   }
+
+.doctors {
+  margin: 0 auto;
+  min-width: 430px;
+  background-color: #06173d;
+}
+.hero-description{
+  text-align: center;
+}
+.header {
+  padding-right:0px;
+  margin-bottom: 0px;
+}
+
+.service-cards,
+.feature-cards,
+.doctor-cards {
+  grid-template-columns: 1fr;
+}
+.info-cards{
+  min-width: 90px;
+}
+.hero-text{
+  width: 96vw;
+  margin-left: 8px;
+}
+.hero-title{
+  font-size: 3rem;
+}
+.service-features__item{
+  height: 90px;
+}
+.services{
+  min-width: 100vw;
+  padding: 2rem ;
+}
+
+.service-card-front {
+  /* background: red; */
+  padding: 0 1rem;
+
+}
+.service-image{
+  height: 250px;
+}
+
+
+.why-us{
+  padding: 2rem .5rem;
+  min-width: 90px;
+}
+.doctors{
+  min-width: 90px;
+}
+
+.doctors-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:white;
+  margin:0;
+}
+
+.hero-image{
+  display: none;
+}
+.title{
+  display: none;
+}
+.header{
+  min-height: 50px;
+}
+.flex{
+  display: none;
+}
+.nav{
+  gap: 0px;
+  justify-content: space-around;
+  width: 100%;
+ 
+
+}
+.nav-link{
+  display: flex;
+  text-align:center ;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  font-size: 1rem;
+}
+.stats-cards{
+  grid-template-columns: 1fr;
+}
+.stats{
+  min-width: 90px;
+}
+}
 </style>
 
