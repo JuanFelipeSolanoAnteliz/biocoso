@@ -1001,9 +1001,6 @@ header span {
   position: relative;
   max-height:100px;
 }
-.intro-text > .intro-btns > .btn-custom{
-	/* margin:0 15px; */
-}
 
 a.btn-custom {
   color: #FFF;
