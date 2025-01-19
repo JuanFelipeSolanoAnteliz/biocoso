@@ -152,7 +152,7 @@ const services = [
   {
     title: "Servicio Tecnico",
     description: "Prestamos el servicio de mantenimiento preventivo y correctivo a los equipos de todas las especialidades. Todo nuestro personal posee registro ante el INVIMA y las capacitaciones requeridas para atender sus requerimientos.",
-    image: "https://i.ebayimg.com/images/g/08QAAOSwj-dlxfR~/s-l1600.jpg",
+    image: "https://avamedicalcolombia.com/wp-content/uploads/2019/07/DSC_0050.jpg",
     more:"hola esta es la info extra"
   },
   {
@@ -880,7 +880,9 @@ header span {
       min-width: 430px;
       background-color: #06173d;
     }
-    
+    .hero-description{
+      text-align: center;
+    }
     .header {
       padding-right:0px;
       margin-bottom: 0px;
