@@ -118,8 +118,14 @@
           <p class="stats-description">biocentralelectronica@gmail.com</p>
         </div>
         <div class="stats-card">
-          <div class="stats-value"><img src="https://www.svgrepo.com/show/526085/phone-calling.svg" alt=""></div>
+          <div class="stats-value"><img src="https://www.svgrepo.com/show/432064/whatsapp.svg" alt=""></div>
           <p class="stats-description">+57 315 600 3326</p>
+          <p class="stats-description">+57 315 076 3333</p>
+        </div>
+        <div class="stats-card">
+          <div class="stats-value"><img src="https://www.svgrepo.com/show/526085/phone-calling.svg" alt=""></div>
+          <p class="stats-description">Fijo</p>
+          <p class="stats-description">+57 608 849 9505</p>
         </div>
         <div class="stats-card">
           <div class="stats-value"><img src="../assets/location-svgrepo-com.svg" alt=""></div>
@@ -678,7 +684,7 @@ header span {
 
 .stats-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -874,6 +880,7 @@ header span {
 }
 .section-title{
   margin: 0px;
+  margin-bottom: 20px;
 }
 
 .doctors-header{
