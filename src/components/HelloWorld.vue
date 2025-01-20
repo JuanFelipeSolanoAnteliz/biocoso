@@ -35,6 +35,9 @@
     <section id="hero" class="hero animate-on-scroll">
       <div class="hero-text">
         <h1 class="hero-title">Biocentral<br />Electronica</h1>
+        <div class="flex2">
+        <span class="title"><img src="../assets/BiocentralElectronica.JPG" alt=""></span>
+      </div>
         <p class="hero-description">Cuidamos la tecnología que protege vidas, asegurando su rendimiento y confiabilidad para un mejor cuidado de la salud.</p>
         <div class="info-cards">
           <section class="service-features">
@@ -834,6 +837,11 @@ header span {
   font-size: 0.875rem;
 }
 
+.flex2{
+  display: none;
+}
+
+
 @media (max-width: 640px) {
   .service-cards,
   .feature-cards,
@@ -908,8 +916,18 @@ header span {
   justify-content: center;
 }
 
+
 .hero-title{
+  display: none;
   text-align: center;
+}
+
+.flex{
+  display: none;
+}
+
+.flex2{
+  display: block;
 }
 
 .hero-description{
@@ -1264,6 +1282,13 @@ body.section-switching.up .animation-block{
   .service-features__container {
     grid-template-columns: 1fr;
   }
+  .hero-title{
+  display: none;
+  font-size: 3rem;
+}
+.flex2{
+  display: block;
+}
 
 }
 
@@ -1288,6 +1313,10 @@ body.section-switching.up .animation-block{
   margin-bottom: 0px;
 }
 
+.flex2{
+  display: block;
+}
+
 .service-cards,
 .feature-cards,
 .doctor-cards {
@@ -1301,6 +1330,7 @@ body.section-switching.up .animation-block{
   margin-left: 8px;
 }
 .hero-title{
+  display: none;
   font-size: 3rem;
 }
 .service-features__item{
@@ -1341,7 +1371,7 @@ body.section-switching.up .animation-block{
   display: none;
 }
 .title{
-  display: none;
+  
 }
 .header{
   min-height: 50px;
@@ -1390,6 +1420,9 @@ a.btn-custom{
 .imgLogoIntro{
   top:140px;
   width: 450px;
+}
+.flex2{
+  display: block;
 }
 
 }
