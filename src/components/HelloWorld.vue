@@ -951,7 +951,7 @@ header span {
 
 .section-main {
   background-size: cover;
-  background-image: url(https://cdn.discordapp.com/attachments/1330014896540352522/1330619812648325232/DALLE_2025-01-19_14.27.50_-_A_modern_empty_operating_room_in_a_wide_horizontal_layout_with_surgical_lights_on_the_ceiling_and_an_adjustable_operating_table_in_the_center._The_de.webp?ex=678ea3c5&is=678d5245&hm=f849717fa815823a6a4cc20e3fc5ef39d0f376d0cad2fef508c71c186780b612&);
+  background-image: url(../assets/DALLE_2025-01-19_14.27.50_-_A_modern_empty_operating_room_in_a_wide_horizontal_layout_with_surgical_lights_on_the_ceiling_and_an_adjustable_operating_table_in_the_center._The_de.webp);
   background-color: rgba(255, 255, 255, 0.3);
   top: 0;
   left: 0;
